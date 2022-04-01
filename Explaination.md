@@ -2,7 +2,7 @@
 
 I chose this method because i thought it was the most fun and thought processing.
 
-I will first go over the "filters" or validation process:
+I will first go over the validation process:
 
 ```csharp
 if (String.IsNullOrEmpty(str)) return '?';
@@ -26,7 +26,7 @@ Regex findDeniedCharacters = new Regex(DeniedCharactersPattern);
 if (findDeniedCharacters.IsMatch(str)) return '?';
 ```
 
-The first is just a check if the string is empty, but the second, I think this was a nice way to do it. It checks the input for any of the `allowedCharacters` content. I use the `IndexOfAny` string method to check an array of char, this way i can find any lowercase character and tell the string contains atleast one valid character. If not i return the questionmark.
+The first is just a check if the string is null or empty, but for the second, I think this was a nice way of doing it. It checks the input for any of the `allowedCharacters` content. I use the `IndexOfAny` string method to check an array of char, this way i can find any lowercase character and tell the string contains atleast one valid character. If not i return the questionmark.
 
 ```csharp
 // Find at least one lowercase character.
@@ -74,7 +74,7 @@ int parathesesDepth = 0;
 (char, int) deepestLetter = ('a', -1);
 ```
 
-Now to the foreach loop, there is a check to see if the parantheses depth is less than 0. This will return the questionmark if there are too many closing parantheses (e.g. "(a))"). Then there's two if's to set the depth, simply increase depth on opening and decrease on closing. After the loop there is a check for checking if there aren't too many opening parantheses. If this is true there is n too few closing parantheses and the depth is more than 0.
+Now to the foreach loop, there is a check to see if the parantheses depth is less than 0. This will return the questionmark if there are too many closing parantheses (e.g. "(a))("). Then there's two if's to set the depth, simply increase depth on opening and decrease on closing.
 
 ```csharp
 foreach (char c in str.ToCharArray())
@@ -98,9 +98,6 @@ foreach (char c in str.ToCharArray())
     deepestLetter = (c, parathesesDepth);
   }
 }
-
-// Unmatched opening paratheses.
-if (parathesesDepth != 0) return '?';
 ```
 
 The last if in the loop checks the `deepestLetter` tuple if a letter is deeper than the current deepest letter. If there is another letter at the same depth, it will not overwrite the current deepest letter, as we always check if the depth is greater than the deepest letter and not equal.

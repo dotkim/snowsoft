@@ -16,8 +16,8 @@ namespace Snowsoft
       Console.WriteLine(Functions.DeepestLetter("a")); // a
       Console.WriteLine(Functions.DeepestLetter("a(b)c")); // b
       Console.WriteLine(Functions.DeepestLetter("((a))(((b)))(c)(d)(e)(((f))(((g))))h(i)")); // g
-      Console.WriteLine(Functions.DeepestLetter("((a)(b)c")); // Missing paratheses, fails
-      Console.WriteLine(Functions.DeepestLetter("((a)))(b)c")); // Too many closing paratheses, fails
+      Console.WriteLine(Functions.DeepestLetter("((a)(b)c")); // Missing parantheses, fails
+      Console.WriteLine(Functions.DeepestLetter("((a)))(b)c")); // Too many closing parantheses, fails
       Console.WriteLine(Functions.DeepestLetter("(8)")); // Has a number, fails
       Console.WriteLine(Functions.DeepestLetter("((a))(((b)))(c)(d)(e)(((f))(((G))))h(i)")); // has uppercase, fails
       Console.WriteLine(Functions.DeepestLetter("((a))(((b!)))(c)(d)(e)(((f))(((g))))h(i)")); // has a symbol in the string, fails
