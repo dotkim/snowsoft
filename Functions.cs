@@ -61,9 +61,6 @@ namespace Snowsoft
         }
       }
 
-      // Unmatched opening paratheses.
-      if (parathesesDepth != 0) return '?';
-
       return deepestLetter.Item1;
     }
 
